@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RoomService } from '../../services/room.services';  // Import RoomService to interact with backend
+import { RoomService } from '../../services/room.services';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
 import { RouterModule } from '@angular/router';  

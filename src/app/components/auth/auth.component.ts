@@ -34,7 +34,7 @@ export class AuthComponent {
         this.isLoggedIn = true;
         this.errorMessage = '';  
         console.log('Login successful!'); 
-        this.router.navigate(['/create']); 
+        this.router.navigate(['/control']); 
       },
       (error) => {
         this.errorMessage = 'Login failed. Please check your credentials and try again.';  
