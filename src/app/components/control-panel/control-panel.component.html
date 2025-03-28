@@ -1,15 +1,25 @@
-<div class="flex flex-col justify-center items-center w-full h-screen">
-
-    <p *ngIf="errorMessage" class="text-red-500">{{ errorMessage }}</p>
-    
-    <div class="w-11/12 md:w-full flex flex-col items-center">
-      <h2 class="text-3xl text-left text-on-surface m-2 ms-0">Control Panel</h2>
+<div class="flex flex-col justify-around md:justify-center items-center w-full h-screen max-h-screen box-border md:items-center">
+    <div class="w-11/12 md:w-full flex flex-col items-center md:max-w-lg">
+        <div class="w-11/12 md:w-full flex flex-col items-center md:max-w-lg">
+            <div class="w-full flex flex-col">
+            <h2 class="text-3xl text-left text-on-surface m-2 ms-0">
+                Control Panel
+            </h2>
+            <p class="text-on-surface/50 text-left">
+                Manage Room and Participants
+            </p>
+        </div>
+      </div>
   
-      <div *ngIf="rooms.length > 0; else noRooms">
-        <ul class="w-full">
-          <li *ngFor="let room of rooms" class="flex justify-between items-center p-4 border-b">
-            <span class="text-blue-600">{{ room.id }}</span> 
-            <button (click)="deleteRoom(room.id)" class="text-red-500 hover:underline cursor-pointer">
+      <div *ngIf="rooms.length > 0; else noRooms" class="w-full flex flex-col gap-3 text-white mt-6">
+        <ul class="w-full rounded-radius bg-surface-alt p-4 text-sm focus-visible:outline-1 focus-visible:outline-on-surface/25 disabled:cursor-not-allowed disabled:opacity-75">
+          <li *ngFor="let room of rooms" class="flex justify-between items-center p-4">
+            <span class="text-lg font-medium">{{ room.room_name }}</span>
+            <span class="text-sm text-gray-400">{{ room.code }}</span>
+            <button 
+              (click)="deleteRoom(room.code)" 
+              class="text-red-400 hover:text-red-500 font-semibold transition duration-300"
+            >
               Delete
             </button>
           </li>
@@ -17,9 +27,9 @@
       </div>
   
       <ng-template #noRooms>
-        <p class="text-white">No rooms owned.</p>
-        
+        <p class="text-gray-400 text-center mt-4">No rooms owned.</p>
       </ng-template>
     </div>
+  
   </div>
   

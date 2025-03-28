@@ -43,10 +43,10 @@ export class ControlPanelComponent implements OnInit {
     );
   }
 
-  deleteRoom(roomId: string) {
+  deleteRoom(roomCode: string) {
     if (confirm('Are you sure you want to delete this room?')) {
-      console.log('Deleting room with ID:', roomId);  
-      this.roomService.deleteRoom(roomId).subscribe(
+      console.log('Deleting room with ID:', roomCode);  
+      this.roomService.deleteRoom(roomCode).subscribe(
         () => {
           console.log('Room deleted, refreshing rooms...');
           this.fetchRooms(this.username!);  
