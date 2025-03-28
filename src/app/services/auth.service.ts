@@ -31,17 +31,11 @@ export class AuthService {
     return localStorage.getItem('username');
   }
 
-  logoutUser(): Observable<any> {
+  logoutUser(): void {
     const username = this.getUsername();
 
     if (username) {
-      return this.http.post(`${this.apiUrl}/logout/`, { username }).pipe(
-        tap(() => {
-          this.removeUserData()
-        })
-      );
-    } else {
-      return throwError(() => new Error('No user logged in'));
+      this.removeUserData();
     }
   }
 }

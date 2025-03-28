@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-landing',
@@ -14,6 +15,14 @@ export class LandingComponent {
   tags: string[] = [];
   step = 1;
   imageSrc: string | null = null;
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit() {
+    if (this.authService.getUsername()) {
+      this.router.navigate(['/create']);
+    }
+  }
 
   triggerFileInput() {
     if (this.fileInput) {

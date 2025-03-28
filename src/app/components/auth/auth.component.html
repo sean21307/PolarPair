@@ -2,28 +2,29 @@
     <div class="w-11/12 md:w-full flex flex-col items-center md:max-w-lg">
       <div class="w-full flex flex-col">
         <h2 class="text-3xl text-left text-on-surface m-2 ms-0">
-          {{ isLoggedIn ? 'Welcome Back!' : 'Sign up' }}
+          {{ isSignUp ? 'Sign Up' : 'Login' }}
         </h2>
         <p class="text-on-surface/50 text-left">
-          {{ isLoggedIn ? 'You are logged in.' : 'Enter your information' }}
+          {{ isSignUp ? 'Please enter your credentials' : 'Welcome back! Please enter your credentials' }}
         </p>
+        <p class="mt-2 text-danger text-md">{{ errorMessage }}</p>
       </div>
   
       <div class="w-full">
-        <div class="flex flex-col gap-3 text-on-surface mt-4">
-            <input id="usernameInput" type="text" [(ngModel)]="username" class="w-full p-4 my-2 bg-gray-100 rounded-md text-black" name="username" placeholder="Username" autocomplete="username" />
-            <input id="passwordInput" type="password" [(ngModel)]="password" class="w-full p-4 my-2 bg-gray-100 rounded-md text-black" name="password" placeholder="Password" autocomplete="password" />            
+        <div class="flex flex-col gap-1 text-on-surface mt-2">
+            <input id="usernameInput" type="text" [(ngModel)]="username" class="focus-visible:outline-1 focus-visible:outline-on-surface/25 w-full p-4 my-2 rounded-radius bg-surface-alt text-on-surface" name="username" placeholder="Username" autocomplete="username" />
+            <input id="passwordInput" type="password" [(ngModel)]="password" class="focus-visible:outline-1 focus-visible:outline-on-surface/25 w-full p-4 my-2 rounded-radius bg-surface-alt text-on-surface" name="password" placeholder="Password" autocomplete="password" />            
         </div>
       </div>
     </div>
   
     <div class="w-11/12 md:w-full flex flex-col items-center md:max-w-lg md:mt-4">
-      <button type="button" (click)="isLoggedIn ? logoutUser() : (isSignUp ? registerUser() : loginUser())"     
+      <button type="button" (click)="(isSignUp ? registerUser() : loginUser())"     
       class="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]  cursor-pointer w-full mt-4 whitespace-nowrap rounded-radius bg-primary px-4 py-4 font-bold tracking-wide text-on-primary transition duration-150 hover:opacity-85 text-center focus-visible:outline-1 focus-visible:outline-on-surface/25 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed">
         {{ isLoggedIn ? 'Logout' : (isSignUp ? 'Sign Up' : 'Login') }}
       </button>
       <p class="text-on-surface-light text-sm font-light mt-4 text-center">
-        {{ isLoggedIn ? 'Not you?' : (isSignUp ? 'Already with PolarPair?' : 'New user?') }}&nbsp;
+        {{ isLoggedIn ? 'Not you?' : (isSignUp ? 'Already with PolarPair?' : "Don't have an account?") }}&nbsp;
         <button class="text-primary font-medium cursor-pointer hover:underline" (click)="toggleAuthMode()">
           {{ isLoggedIn ? 'Login' : (isSignUp ? 'Login' : 'Sign Up') }}
         </button>

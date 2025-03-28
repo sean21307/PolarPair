@@ -9,6 +9,15 @@
     --color-primary: #45cbf4;
     --color-on-primary: #141616;
 
+    --color-info: var(--color-sky-500);
+    --color-on-info: var(--color-white);
+    --color-success: var(--color-green-500);
+    --color-on-success: var(--color-white);
+    --color-warning: var(--color-amber-500);
+    --color-on-warning: var(--color-white);
+    --color-danger: var(--color-red-500);
+    --color-on-danger: var(--color-white);
+
     --radius-radius: var(--radius-lg);
 }
 
