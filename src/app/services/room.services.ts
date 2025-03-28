@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class RoomServices {
+export class RoomService {
   private apiUrl = 'https://polar-pair-backend.vercel.app/rooms';
 
   constructor(private http: HttpClient) {}
