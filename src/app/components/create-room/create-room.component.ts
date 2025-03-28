@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { RoomService } from '../../services/room.services';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-create-room',
@@ -15,14 +16,19 @@ export class CreateRoomComponent {
   roomName: string = ''; 
   errorMessage: string = ''; 
 
-  constructor(private authService: AuthService, private router: Router, private roomService: RoomService) {}
+  constructor(
+    private authService: AuthService, 
+    private router: Router, 
+    private roomService: RoomService,
+    private notificationService: NotificationService
+  ) {}
 
   createRoom() {
     const storedUsername = localStorage.getItem('username'); 
     if (storedUsername && this.roomName) {
       this.roomService.createRoom(storedUsername, this.roomName).subscribe(
         (response) => {
-    
+          this.notificationService.addNotification({variant: 'success', title:'Success!', message:`You have successfully created a room named ${this.roomName}.`});
           console.log('Room created successfully!', response);
           this.errorMessage = '';
         },

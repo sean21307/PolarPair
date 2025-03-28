@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { NotificationService } from '../../services/notification.service';
+import { MatchService } from '../../services/match.service';
 
 @Component({
   selector: 'app-landing',
@@ -17,7 +18,7 @@ export class LandingComponent {
   step = 1;
   imageSrc: string | null = null;
 
-  constructor(private authService: AuthService, private router: Router, private notificationService: NotificationService) {}
+  constructor(private authService: AuthService, private router: Router, private notificationService: NotificationService, private matchService: MatchService) {}
 
   ngOnInit() {
     if (this.authService.getUsername()) {
@@ -39,6 +40,10 @@ export class LandingComponent {
       this.step++;
     } else if (this.step === 2) {
       // check if information is valid
+      this.matchService.storeUserData({
+        name: 'sean',
+        image: ' ',
+      })
       this.step++;
     }
   }
