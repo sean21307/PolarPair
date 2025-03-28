@@ -1,11 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { flush } from '@angular/core/testing';
-import { RouterLink } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css'
 })
@@ -13,7 +12,7 @@ export class LandingComponent {
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
   tags: string[] = [];
-  step = 3;
+  step = 1;
   imageSrc: string | null = null;
 
   triggerFileInput() {
@@ -21,6 +20,16 @@ export class LandingComponent {
       this.fileInput.nativeElement.click();
     } else {
       console.error("File input element not found.");
+    }
+  }
+
+  attemptCompleteStep() {
+    if (this.step === 1) {
+      // check if room code is valid and stuff
+      this.step++;
+    } else if (this.step === 2) {
+      // check if information is valid
+      this.step++;
     }
   }
 
