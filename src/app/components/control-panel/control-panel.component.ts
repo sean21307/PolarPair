@@ -3,6 +3,7 @@ import { RoomService } from '../../services/room.services';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
 import { RouterModule } from '@angular/router';  
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-control-panel',
@@ -16,7 +17,12 @@ export class ControlPanelComponent implements OnInit {
   errorMessage: string = ''; 
   username: string | null = localStorage.getItem('username');  
 
-  constructor(private roomService: RoomService, private router: Router) {}
+  constructor(private roomService: RoomService, private router: Router, private authService: AuthService) {}
+
+  logout() {
+    this.authService.logoutUser();
+    this.router.navigate(['/']);
+  }
 
   ngOnInit() {
     if (this.username) {

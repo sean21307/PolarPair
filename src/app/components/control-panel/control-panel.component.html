@@ -9,15 +9,6 @@
             Manage Room and Participants
           </p>
         </div>
-  
-        <div class="flex items-center">
-          <button
-            [routerLink]="['/create']"
-            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300"
-          >
-            Create Room
-          </button>
-        </div>
       </div>
   
       <div *ngIf="rooms.length > 0; else noRooms" class="w-full flex flex-col gap-3 text-white mt-6">
@@ -29,14 +20,32 @@
             <span class="text-sm text-gray-400">{{ room.code }}</span>
             <button 
               (click)="deleteRoom(room.code)" 
-              class="text-red-400 hover:text-red-500 font-semibold transition duration-300"
+              class="text-red-400 hover:text-red-500 font-semibold transition duration-150"
             >
-              Delete
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="cursor-pointer size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+              
             </button>
           </li>
         </ul>
       </div>
   
+      <div class="flex flex-col gap-4 items-center w-full">
+        <button
+          [routerLink]="['/create']"
+          class="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]  cursor-pointer w-full mt-4 whitespace-nowrap rounded-radius bg-primary px-4 py-4 font-bold tracking-wide text-on-primary transition duration-150 hover:opacity-85 text-center focus-visible:outline-1 focus-visible:outline-on-surface/25 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed">
+          
+          Create Room
+        </button>
+
+        <p class="text-on-surface/50 text-left mt-4">You are logged in.
+            <span (click)="logout()" class="text-primary/90 font-medium hover:underline cursor-pointer">
+                Logout
+            </span>
+        </p>
+      </div>
+
       <ng-template #noRooms>
         <p class="text-gray-400 text-center mt-4">No rooms have been created.</p>
       </ng-template>
