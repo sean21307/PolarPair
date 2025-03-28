@@ -1,2 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+@theme {
+    --color-surface: #ffffff;
+    --color-surface-alt: #dadada;
+    --color-on-surface: #020202;
+    --color-on-surface-light: #242424;
+    --color-primary: #45cbf4;
+    --color-on-primary: #141616;
+
+    --radius-radius: var(--radius-lg);
+}
+
+[data-theme="dark"] {
+    --color-surface: #161719;
+    --color-surface-alt: #25262a;
+    --color-on-surface: #FFFFFF;
+    --color-on-surface-light: #bdbbbb;
+}
