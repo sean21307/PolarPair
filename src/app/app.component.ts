@@ -13,10 +13,4 @@ import { ToastNotificationComponent } from './components/toast-notification/toas
 export class AppComponent {
   title = 'PolarPair';
   constructor(private http: HttpClient) {}
-
-  ngOnInit() {
-    this.http.get('https://polar-pair-backend.vercel.app/prompt/test/').subscribe(config => {
-      console.log('aaa');
-    });
-  }
 }
