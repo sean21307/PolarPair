@@ -29,7 +29,7 @@ export class CreateRoomComponent {
       this.roomService.createRoom(storedUsername, this.roomName).subscribe(
         (response) => {
           this.notificationService.addNotification({variant: 'success', title:'Success!', message:`You have successfully created a room named ${this.roomName}.`});
-          console.log('Room created successfully!', response);
+          this.router.navigate(['/room/', response.code]);
           this.errorMessage = '';
         },
         (error) => {

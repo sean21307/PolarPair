@@ -46,6 +46,11 @@ export class RoomService {
     return this.http.get(`${this.apiUrl}/pairings/${roomCode}/${name}`);
   }
 
+  getParticipants(roomCode: string): Observable<any> {
+    // connor misspelled participant
+    return this.http.get(`${this.apiUrl}/partcipant/all/${roomCode}`);
+  }
+
   getAllRooms(username: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/room/all/${username}`); 
   }
