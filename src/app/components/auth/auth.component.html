@@ -12,22 +12,15 @@
 
         <div class="w-full">
             <div class="flex flex-col gap-3 text-on-surface mt-4">
-                <input id="usernameInput" type="text"
-                    class="w-full rounded-radius bg-surface-alt p-4 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75"
-                    name="username" placeholder="Username" autocomplete="username" />
-
-                <input id="passwordInput" type="text"
-                    class="w-full rounded-radius bg-surface-alt p-4 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75"
-                    name="password" placeholder="Password" autocomplete="password" />
-
-
+                <input id="usernameInput" type="text" [(ngModel)]="username" class="w-full p-4 my-2 bg-gray-100 rounded-md" name="username" placeholder="Username" autocomplete="username" />
+                <input id="passwordInput" type="password" [(ngModel)]="password" class="w-full p-4 my-2 bg-gray-100 rounded-md" name="password" placeholder="Password" autocomplete="password" />
             </div>
 
         </div>
     </div>
 
     <div class="w-11/12 md:w-full flex flex-col items-center md:max-w-lg md:mt-4">
-        <button type="button"
+        <button type="button" (click)="registerUser()"
             class="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]  cursor-pointer w-full mt-4 whitespace-nowrap rounded-radius bg-primary px-4 py-4 font-bold tracking-wide text-on-primary transition duration-150 hover:opacity-85 text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed dark:bg-primary-dark dark:border-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark">
             Sign Up
         </button>
