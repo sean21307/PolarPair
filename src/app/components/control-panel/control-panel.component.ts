@@ -32,7 +32,7 @@ export class ControlPanelComponent implements OnInit {
     console.log('Fetching rooms for username:', username);  
     this.roomService.getAllRooms(username).subscribe(
       (response) => {
-        this.rooms = response;  
+        this.rooms = response.rooms;  
         this.errorMessage = '';
         console.log('Rooms fetched:', this.rooms, this.rooms.length);  
       },

@@ -38,7 +38,7 @@ export class RoomService {
     return this.http.get(`${this.apiUrl}/pairings/${roomCode}/${name}`);
   }
 
-  getAllRooms(username: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/room/all/${username}`);  // Append username to the URL
+  getAllRooms(username: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/room/all/${username}`);  // Append username to the URL
   }
 }
