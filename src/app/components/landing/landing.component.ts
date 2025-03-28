@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-landing',
@@ -16,7 +17,7 @@ export class LandingComponent {
   step = 1;
   imageSrc: string | null = null;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private notificationService: NotificationService) {}
 
   ngOnInit() {
     if (this.authService.getUsername()) {
@@ -61,6 +62,12 @@ export class LandingComponent {
     const tag = inputElement.value.trim();
   
     if (event.key === "Enter" && tag) {
+      const words = tag.split(' ');
+      if (words.length > 2) {
+        this.notificationService.addNotification({variant: 'danger', title:'Oops!', message:'An interest can only have up to two words. Please try again.'});
+        return;
+      }
+
       event.preventDefault();
       this.tags.push(tag);
       inputElement.value = "";

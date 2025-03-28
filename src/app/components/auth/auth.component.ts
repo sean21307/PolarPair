@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service'; 
 import { FormsModule } from '@angular/forms';  // Import FormsModule is used for NgModule to Bind Data Together
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterModule],
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],  
 })
