@@ -1,1 +1,22 @@
-<p>room works!</p>
+<div class="flex flex-col items-center w-full h-screen md:items-center mt-8">
+    <p></p>
+    <div class="w-11/12 md:w-full md:max-w-lg flex flex-col items-center">
+        <div class="w-full flex flex-col text-center mt-1">
+            <h2 class="text-3xl text-on-surface m-2 ms-0">
+                {{ roomName }} Room
+            </h2>
+            <p class="text-on-surface/50">
+                Participants:
+                @for (participant of participants; track participants) {
+                    
+                }
+            </p>
+        </div>
+    </div>
+
+    <div class="p-4 w-full max-w-11/12 md:max-w-lg bg-surface-alt text-on-surface text-center border border-on-surface/25 rounded-radius">
+        <p class="text-2xl font-medium mb-2">Icebreaker</p>
+        <p class="font-light text-on-surface/90"></p>
+    </div>
+    <p></p>
+</div>
