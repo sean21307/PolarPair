@@ -50,7 +50,7 @@ export class LandingComponent {
   }
 
   removeTag(tag: string) {
-    this.tags = this.tags.filter((tag0 => {tag != tag0}));
+    this.tags = this.tags.filter((tag0) => tag != tag0);
   }
   
 }
