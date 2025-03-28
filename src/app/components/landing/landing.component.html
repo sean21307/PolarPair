@@ -58,10 +58,20 @@
                 <input id="name" type="text" formControlName="name"
                     class="w-full rounded-radius bg-surface-alt p-4 text-sm focus-visible:outline-1 focus-visible:outline-on-surface/25 disabled:cursor-not-allowed disabled:opacity-75"
                     name="name" placeholder="Enter your name" autocomplete="name" />
-                <input (keydown)="onInterestInputKeyDown($event)" id="interestsInput" type="text"
-                    class="w-full rounded-radius bg-surface-alt p-4 text-sm focus-visible:outline-1 focus-visible:outline-on-surface/25 disabled:cursor-not-allowed disabled:opacity-75"
-                    name="interests" placeholder="Enter your interests" 
-                />
+                
+                <div class="flex gap-3 text-on-surface">
+                    <input (keydown)="onInterestInputKeyDown($event)" id="interestsInput" type="text" #interestInput
+                        class="w-full rounded-radius bg-surface-alt p-4 text-sm focus-visible:outline-1 focus-visible:outline-on-surface/25 disabled:cursor-not-allowed disabled:opacity-75"
+                        name="interests" placeholder="Enter your interests" 
+                    />
+                    <button (click)="addInterest()" class="cursor-pointer shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] bg-primary rounded-radius w-full max-w-[3.25rem] flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-on-primary">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                          
+                    </button>
+                </div>
+                
                     
                 <div class="flex gap-2 flex-wrap" id="tags-list">
                     @for (tag of tags; track tag) {
@@ -70,7 +80,7 @@
                                 {{ tag }}
                             </span>
                             <button (click)="removeTag(tag)" class="ml-2">
-                                <svg class="h-4 w-4 text-on-surface" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                                <svg class="cursor-pointer h-4 w-4 text-on-surface" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                             </button>
                         </div>
                     }

@@ -16,11 +16,12 @@ import { RoomService } from '../../services/room.services';
 export class LandingComponent {
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
   @ViewChild('codeInput') codeInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('interestInput') interestInput!: ElementRef<HTMLInputElement>;
   userForm!: FormGroup;
 
   code: string = '';
   tags: string[] = [];
-  step = 1;
+  step = 2;
   imageSrc: string | null = null;
 
   constructor(private roomService: RoomService, private fb: FormBuilder, private authService: AuthService, private router: Router, private notificationService: NotificationService, private matchService: MatchService) {}
@@ -97,23 +98,49 @@ export class LandingComponent {
     }
   }
 
+  makeInterests(inputElement: HTMLInputElement, tags: string[]) {
+    for (const tag of tags) {
+        const words = tag.split(' ');
+
+        if (words.length > 2) {
+            this.notificationService.addNotification({
+                variant: 'danger',
+                title: 'Oops!',
+                message: `An interest can only have up to two words. Please try again.`
+            });
+            return;
+        }
+
+        if (!this.tags.includes(tag)) { 
+            this.tags.push(tag);
+        }
+    }
+
+    this.updateInterestsFormControl();
+    inputElement.value = "";
+  }
+
+  addInterest() {
+    const inputElement = this.interestInput.nativeElement;
+    let tags = inputElement.value.split(',').map(tag => tag.trim()).filter(tag => tag !== "");
+    if (!tags) {
+      return;
+    }
+
+    this.makeInterests(inputElement, tags);
+  }
+
   onInterestInputKeyDown(event: KeyboardEvent) {
     const inputElement = event.target as HTMLInputElement;
-    const tag = inputElement.value.trim();
-  
-    if (event.key === "Enter" && tag) {
-      const words = tag.split(' ');
-      if (words.length > 2) {
-        this.notificationService.addNotification({variant: 'danger', title:'Oops!', message:'An interest can only have up to two words. Please try again.'});
-        return;
-      }
+    let tags = inputElement.value.split(',').map(tag => tag.trim()).filter(tag => tag !== "");
 
+    if (event.key === "Enter" && tags.length > 0) {
       event.preventDefault();
-      this.tags.push(tag);
-      this.updateInterestsFormControl();
-      inputElement.value = "";
+
+      this.makeInterests(inputElement, tags);
     }
-  }
+}
+
 
   removeTag(tag: string) {
     this.tags = this.tags.filter((tag0) => tag != tag0);
