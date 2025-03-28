@@ -13,7 +13,7 @@ export class LandingComponent {
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
   tags: string[] = [];
-  step = 2;
+  step = 3;
   imageSrc: string | null = null;
 
   triggerFileInput() {
