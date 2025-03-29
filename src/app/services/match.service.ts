@@ -8,15 +8,6 @@ export class MatchService {
   constructor() { }
 
   getMatchData(): { name: string; image: string; prompt: string } | undefined {
-    // temp
-    if (2 + 2 === 4) {
-      return {
-        name: 'Patrick',
-        image: '',
-        prompt: "How do ocean currents match up to transformers' alternate modes?"
-      }
-    }
-
     const name = localStorage.getItem('matchName');
     const image = localStorage.getItem('matchImage');
     const prompt = localStorage.getItem('matchPrompt');

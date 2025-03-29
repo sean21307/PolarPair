@@ -21,10 +21,22 @@ export class LandingComponent {
 
   code: string = '';
   tags: string[] = [];
-  step = 2;
+  step = 1;
   imageSrc: string | null = null;
 
   constructor(private roomService: RoomService, private fb: FormBuilder, private authService: AuthService, private router: Router, private notificationService: NotificationService, private matchService: MatchService) {}
+
+  checkGameStatus() {
+    this.roomService.getPairing(this.code, this.userForm.value.name).subscribe(response => {
+      if (response.confirmed == true) {
+        this.matchService.storeMatchData({
+          name: response.partner,
+          image: response.image,
+          prompt: response.icebreaker,
+        })
+      }
+    })
+  }
 
   ngOnInit() {
     if (this.authService.getUsername()) {
@@ -75,6 +87,9 @@ export class LandingComponent {
       }, err => {
         this.notificationService.addNotification({variant: 'danger', title:'Oops!', message:'Something went wrong. Please try again.'});
       });
+
+      // run polling loop
+      setInterval(() => this.checkGameStatus(), 5000);
     }
   }
 

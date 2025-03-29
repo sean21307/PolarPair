@@ -42,7 +42,16 @@ export class RoomService {
     return this.http.post(`${this.apiUrl}/pairings/create/${roomCode}`, {});
   }
 
-  getPairings(roomCode: string, name: string): Observable<any> {
+  confirmPairings(roomCode: string): Observable<any> {
+    console.log(`${this.apiUrl}/pairings/confirm/${roomCode}`);
+    return this.http.post(`${this.apiUrl}/pairings/confirm/${roomCode}`, {});
+  }
+
+  getPairings(roomCode: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/pairings/all/${roomCode}`);
+  }
+
+  getPairing(roomCode: string, name: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/pairings/${roomCode}/${name}`);
   }
 
