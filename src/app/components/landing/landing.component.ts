@@ -41,8 +41,6 @@ export class LandingComponent {
         }
       })
     }
-
-    
   }
 
   ngOnInit() {
@@ -102,6 +100,7 @@ export class LandingComponent {
           name: this.userForm.value.name,
           image: (result as any).image,
         })
+        localStorage.setItem('code', this.code);
       }, err => {
         this.notificationService.addNotification({variant: 'danger', title:'Oops!', message:'Something went wrong. Please try again.'});
       });
