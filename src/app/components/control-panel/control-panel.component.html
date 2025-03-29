@@ -24,13 +24,13 @@
   
       <div *ngIf="rooms.length > 0; else noRooms" class="w-full flex flex-col gap-3 text-white mt-6">
         <ul class="w-full rounded-radius bg-surface-alt p-4 text-sm focus-visible:outline-1 focus-visible:outline-on-surface/25 disabled:cursor-not-allowed disabled:opacity-75">
-          <li *ngFor="let room of rooms" class="flex justify-between items-center p-4">
-            <a [routerLink]="['/room', room.code]" class="text-lg font-medium hover:text-blue-500">
+          <li [routerLink]="['/room', room.code]"  *ngFor="let room of rooms" class="flex justify-between items-center p-4 cursor-pointer rounded-radius hover:bg-white/5">
+            <p class="text-lg font-medium">
               {{ room.room_name }}
-            </a>            
+            </p>            
             <span class="text-sm text-gray-400">{{ room.code }}</span>
             <button 
-              (click)="deleteRoomCode = room.code; deleteModalOpen = true;" 
+              (click)="deleteRoomCode = room.code; deleteModalOpen = true; $event.stopPropagation();" 
               class="text-red-400 hover:text-red-500 font-semibold transition duration-150"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="cursor-pointer size-6">

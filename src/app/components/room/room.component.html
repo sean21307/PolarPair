@@ -20,9 +20,9 @@
             </h3>
             
             @if (!generating && screen === 'pairing') {
-                <div class="grid grid-cols-1 md:grid-cols-3 place-items-center gap-4 p-4 justify-items-center">
+                <div class="flex flex-wrap justify-items-center gap-4 p-4 justify-center">
                     @for (pairing of pairings; track pairing) {
-                        <div class="p-4 w-full bg-surface-alt text-on-surface text-center border border-on-surface/25 rounded-radius">
+                        <div class="md:w-[calc(33.333%-16px)] p-4 w-full bg-surface-alt text-on-surface text-center border border-on-surface/25 rounded-radius">
                             <div class="w-11/12 md:w-full flex flex-col items-center">
                                 <div class="flex items-center -space-x-4">
                                     <span class="mt-4 flex size-12 items-center justify-center overflow-hidden rounded-full border border-outline bg-surface-alt text-on-surface/50 dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark/50">
