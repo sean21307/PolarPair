@@ -5,6 +5,7 @@ import { NotificationService } from '../../services/notification.service';
 import { MatchService } from '../../services/match.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RoomService } from '../../services/room.services';
+import { retry } from 'rxjs';
 
 @Component({
   selector: 'app-landing',
@@ -27,15 +28,23 @@ export class LandingComponent {
   constructor(private roomService: RoomService, private fb: FormBuilder, private authService: AuthService, private router: Router, private notificationService: NotificationService, private matchService: MatchService) {}
 
   checkGameStatus() {
-    this.roomService.getPairing(this.code, this.userForm.value.name).subscribe(response => {
-      if (response.confirmed == true) {
-        this.matchService.storeMatchData({
-          name: response.partner,
-          image: response.image,
-          prompt: response.icebreaker,
-        })
-      }
-    })
+    console.log("gaaa");
+    if (this.step === 3) {
+      console.log("chekcing");
+      this.roomService.getPairing(this.code, this.userForm.value.name).subscribe(response => {
+        if (response.confirmed == true) {
+          this.matchService.storeMatchData({
+            name: response.partner,
+            image: response.image,
+            prompt: response.icebreaker,
+          });
+
+          this.router.navigate(['/match']);
+        }
+      })
+    }
+
+    
   }
 
   ngOnInit() {
@@ -45,6 +54,9 @@ export class LandingComponent {
     }
 
     this.createForm();
+
+    // run polling loop
+    setInterval(() => this.checkGameStatus(), 5000);
   }
 
   private createForm() {
@@ -87,9 +99,6 @@ export class LandingComponent {
       }, err => {
         this.notificationService.addNotification({variant: 'danger', title:'Oops!', message:'Something went wrong. Please try again.'});
       });
-
-      // run polling loop
-      setInterval(() => this.checkGameStatus(), 5000);
     }
   }
 
