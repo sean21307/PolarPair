@@ -46,7 +46,7 @@ export class LandingComponent {
 
   ngOnInit() {
     if (this.authService.getUsername()) {
-      this.router.navigate(['/create']);
+      this.router.navigate(['/control']);
       return;
     }
 
