@@ -28,9 +28,7 @@ export class LandingComponent {
   constructor(private roomService: RoomService, private fb: FormBuilder, private authService: AuthService, private router: Router, private notificationService: NotificationService, private matchService: MatchService) {}
 
   checkGameStatus() {
-    console.log("gaaa");
     if (this.step === 3) {
-      console.log("chekcing");
       this.roomService.getPairing(this.code, this.userForm.value.name).subscribe(response => {
         if (response.confirmed == true) {
           this.matchService.storeMatchData({
@@ -88,6 +86,10 @@ export class LandingComponent {
       });
     } else if (this.step === 2) {
       // check if information is valid
+      if (!this.userForm.value.image) {
+        this.notificationService.addNotification({variant: 'danger', title:'Oops!', message:'You must have a profile image. Please try again.'});
+        return;
+      }
 
       if (this.tags.length < 2) {
         this.notificationService.addNotification({variant: 'danger', title:'Oops!', message:'You must have at least two interests. Please try again.'});
@@ -96,6 +98,10 @@ export class LandingComponent {
 
       this.roomService.joinRoom(this.code, this.userForm.value.name, this.userForm.value.interests, this.userForm.value.image).subscribe(result => {
         this.step++;
+        this.matchService.storeUserData({
+          name: this.userForm.value.name,
+          image: (result as any).image,
+        })
       }, err => {
         this.notificationService.addNotification({variant: 'danger', title:'Oops!', message:'Something went wrong. Please try again.'});
       });
