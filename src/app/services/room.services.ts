@@ -52,7 +52,7 @@ export class RoomService {
   }
 
   getPairing(roomCode: string, name: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/pairings/${roomCode}/${name}`);
+    return this.http.post(`${this.apiUrl}/pairings/${roomCode}/`, {name: name});
   }
 
   getParticipants(roomCode: string): Observable<any> {

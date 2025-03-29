@@ -20,6 +20,7 @@ export class LandingComponent {
   @ViewChild('interestInput') interestInput!: ElementRef<HTMLInputElement>;
   userForm!: FormGroup;
 
+  processing = false;
   code: string = '';
   tags: string[] = [];
   step = 1;
@@ -84,6 +85,10 @@ export class LandingComponent {
       });
     } else if (this.step === 2) {
       // check if information is valid
+      if (this.processing) {
+        return;
+      }
+
       if (!this.userForm.value.image) {
         this.notificationService.addNotification({variant: 'danger', title:'Oops!', message:'You must have a profile image. Please try again.'});
         return;
@@ -94,14 +99,18 @@ export class LandingComponent {
         return;
       }
 
+      this.processing = true;
       this.roomService.joinRoom(this.code, this.userForm.value.name, this.userForm.value.interests, this.userForm.value.image).subscribe(result => {
+        
         this.step++;
         this.matchService.storeUserData({
           name: this.userForm.value.name,
           image: (result as any).image,
         })
         localStorage.setItem('code', this.code);
+        this.processing = false;
       }, err => {
+        this.processing = false;
         this.notificationService.addNotification({variant: 'danger', title:'Oops!', message:'Something went wrong. Please try again.'});
       });
     }
