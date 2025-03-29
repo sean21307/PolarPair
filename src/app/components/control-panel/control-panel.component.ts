@@ -17,6 +17,8 @@ export class ControlPanelComponent implements OnInit {
   rooms: any[] = [];  
   errorMessage: string = ''; 
   username: string | null = localStorage.getItem('username');  
+  deleteRoomCode = null;
+  deleteModalOpen = false;
 
   constructor(private roomService: RoomService, private router: Router, private authService: AuthService) {}
 
@@ -51,8 +53,8 @@ export class ControlPanelComponent implements OnInit {
   }
 
   deleteRoom(roomCode: string) {
-    if (confirm('Are you sure you want to delete this room?')) {
-      console.log('Deleting room with ID:', roomCode);  
+    this.deleteModalOpen = false;
+    console.log('Deleting room with ID:', roomCode);  
       this.roomService.deleteRoom(roomCode).subscribe(
         () => {
           console.log('Room deleted, refreshing rooms...');
@@ -63,6 +65,5 @@ export class ControlPanelComponent implements OnInit {
           console.error('Error deleting room:', error);  
         }
       );
-    }
   }
 }

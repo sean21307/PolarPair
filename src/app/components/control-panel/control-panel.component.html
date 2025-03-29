@@ -1,3 +1,14 @@
+
+@if (deleteModalOpen) {
+  <app-modal
+      text="Are you sure you want to close this room? This action is permanent."
+      (close)="deleteModalOpen=false"
+      header="Close Room?"
+      (submit)="deleteRoom(deleteRoomCode || '')"
+      >
+  </app-modal>
+}
+
 <div class="flex flex-col justify-around md:justify-center items-center w-full h-screen max-h-screen box-border md:items-center">
     <div class="w-11/12 md:w-full flex flex-col items-center md:max-w-lg">
       <div class="w-full flex justify-between items-center">
@@ -19,7 +30,7 @@
             </a>            
             <span class="text-sm text-gray-400">{{ room.code }}</span>
             <button 
-              (click)="deleteRoom(room.code)" 
+              (click)="deleteRoomCode = room.code; deleteModalOpen = true;" 
               class="text-red-400 hover:text-red-500 font-semibold transition duration-150"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="cursor-pointer size-6">
