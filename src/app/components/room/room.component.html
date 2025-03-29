@@ -24,8 +24,8 @@
                     @for (pairing of pairings; track pairing) {
                         <div class="md:w-[calc(33.333%-16px)] p-4 w-full bg-surface-alt text-on-surface text-center border border-on-surface/25 rounded-radius">
                             <div class="w-11/12 md:w-full flex flex-col items-center">
-                                <div class="flex items-center mr-[-16px]">
-                                    <span class="mt-4 flex size-12 items-center justify-center overflow-hidden rounded-full border border-outline bg-surface-alt text-on-surface/50 dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark/50">
+                                <div class="flex items-center">
+                                    <span class="mr-[-16px] mt-4 flex size-12 items-center justify-center overflow-hidden rounded-full border border-outline bg-surface-alt text-on-surface/50 dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark/50">
                                         @if (pairing.Person1_image !== '') {
                                             <img [src]="pairing.Person1_image" class="w-full h-full object-cover rounded-full" />
                                         } @else {
@@ -72,8 +72,8 @@
     
                     @for (participant of participants; track participant; let last = $last) {
                         <div class="max-w-md w-full flex justify-between items-center border-t-1 border-on-surface/10 p-2 text-on-surface/75" [ngClass]="{'border-b-1': last}">
-                            <div class="flex mr-[16px] items-center justify-left text-left ">
-                                <span class="flex size-10 items-center justify-center overflow-hidden rounded-full border border-outline bg-surface-alt text-on-surface/50 dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark/50">
+                            <div class="flex items-center justify-left text-left ">
+                                <span class="mr-4 flex size-10 items-center justify-center overflow-hidden rounded-full border border-outline bg-surface-alt text-on-surface/50 dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark/50">
                                     @if (participant.image) {
                                         <img [src]="participant.image" class="w-full h-full object-cover rounded-full" />
                                     } @else {

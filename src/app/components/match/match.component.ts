@@ -14,6 +14,7 @@ export class MatchComponent {
   constructor(private matchService: MatchService, private router: Router, private roomService: RoomService) {}
   matchData!: { name: string; image: string; prompt: string };
   userData!: { name: string; image: string };
+  lastPrompt = null;
 
   checkGameStatus() {
     this.roomService.getPairing(localStorage.getItem('code') ?? '', localStorage.getItem('yourName') ?? '').subscribe(response => {
@@ -24,7 +25,11 @@ export class MatchComponent {
           prompt: response.icebreaker,
         });
 
-        window.location.reload();
+        if (this.lastPrompt !== response.icebreaker) {
+          window.location.reload();
+          this.lastPrompt = response.icebreaker;
+        }
+       
       }
     })
   }
