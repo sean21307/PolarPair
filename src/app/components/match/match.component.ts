@@ -25,8 +25,9 @@ export class MatchComponent {
           prompt: response.icebreaker,
         });
 
-        if (this.lastPrompt !== response.icebreaker) {
+        if (localStorage.getItem('prompt') !== response.icebreaker) {
           window.location.reload();
+          localStorage.setItem('prompt', response.icebreaker)
           this.lastPrompt = response.icebreaker;
         }
        
