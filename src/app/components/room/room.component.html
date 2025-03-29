@@ -1,3 +1,14 @@
+
+@if (deleteModalOpen) {
+    <app-modal
+        text="Are you sure you want to close this room? This action is permanent."
+        (close)="deleteModalOpen=false"
+        header="Close Room?"
+        (submit)="closeRoom()"
+        >
+    </app-modal>
+}
+
 <div class="flex flex-col justify-around items-center w-full h-screen md:items-center my-8">
     <div class="w-11/12 md:w-full flex flex-col items-center">
         <div class="w-full flex flex-col text-center mt-1 justify-center items-center">
@@ -105,7 +116,7 @@
                         Send Prompts
                     </button>
                 </div>
-                <p (click)="closeRoom()" class="text-danger font-medium mt-2 cursor-pointer mb-4">Close Room</p>
+                <p (click)="deleteModalOpen=true" class="text-danger font-medium mt-2 cursor-pointer mb-4">Close Room</p>
             </div>
         } @else {
             <div class="text-center w-11/12 md:w-full md:max-w-md">
@@ -113,7 +124,7 @@
                     class="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]  cursor-pointer w-full mt-12 whitespace-nowrap rounded-radius bg-primary px-4 py-4 font-bold tracking-wide text-on-primary transition duration-150 hover:opacity-85 text-center focus-visible:outline-1 focus-visible:outline-on-surface/25 active:opacity-100 active:outline-offset-0 disabled:opacity-75 disabled:cursor-not-allowed">
                     Start Round
                 </button>
-                <p (click)="closeRoom()" class="text-danger font-medium mt-4 cursor-pointer">Close Room</p>
+                <p (click)="deleteModalOpen=true" class="text-danger font-medium mt-4 cursor-pointer">Close Room</p>
             </div>
         }
     }

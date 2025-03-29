@@ -4,11 +4,12 @@ import { RoomService } from '../../services/room.services';
 import { AuthService } from '../../services/auth.service';
 import { NotificationService } from '../../services/notification.service';
 import { CommonModule } from '@angular/common';
+import { ModalComponent } from "../modal/modal.component";
 
 @Component({
   selector: 'app-room',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ModalComponent],
   templateUrl: './room.component.html',
   styleUrl: './room.component.css'
 })
@@ -20,6 +21,7 @@ export class RoomComponent {
   pairings!: {Person1: string, Person2: string, icebreaker: string, Person1_image: string, Person2_image: string}[];
   screen = 'default';
   generating = false;
+  deleteModalOpen = false;
 
   constructor(private router: Router, private roomService: RoomService, private authService: AuthService, private notificationService: NotificationService) {}
 

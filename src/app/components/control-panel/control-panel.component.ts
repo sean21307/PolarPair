@@ -4,13 +4,14 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
 import { RouterModule } from '@angular/router';  
 import { AuthService } from '../../services/auth.service';
+import { ModalComponent } from "../modal/modal.component";
 
 @Component({
   selector: 'app-control-panel',
   standalone: true,
   templateUrl: './control-panel.component.html',
   styleUrls: ['./control-panel.component.css'],
-  imports: [CommonModule, RouterModule] 
+  imports: [CommonModule, RouterModule, ModalComponent] 
 })
 export class ControlPanelComponent implements OnInit {
   rooms: any[] = [];  
