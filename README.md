@@ -22,7 +22,7 @@ Networking at events can be challenging, especially when attendees don’t know 
 3. **The app matches users and generates personalized icebreakers.**  
 4. **Users engage in networking rounds, meeting different attendees.**  
 
-## 💰 Revenue Model  
+## 💰 Potential Revenue Model  
 - **Pay-per-use:** Organizers pay based on attendees and icebreaker sessions.  
 - **Subscription:** Large corporations can access premium features.  
 - **Freemium + Ads:** Free version with limited features and ad-based monetization.  
