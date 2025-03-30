@@ -21,7 +21,6 @@ Networking at events can be challenging, especially when attendees don’t know 
 2. **Attendees join the room, enter details, and select interests.**  
 3. **The app matches users and generates personalized icebreakers.**  
 4. **Users engage in networking rounds, meeting different attendees.**  
-5. **Organizers review analytics to measure engagement and success.**  
 
 ## 💰 Revenue Model  
 - **Pay-per-use:** Organizers pay based on attendees and icebreaker sessions.  
@@ -31,7 +30,6 @@ Networking at events can be challenging, especially when attendees don’t know 
 ## 🏆 Competitive Advantage  
 - **Dynamic user matching** based on interests (unlike traditional event platforms).  
 - **AI-powered personalized icebreakers** create engaging conversations.  
-- **Real-time analytics** provide event organizers with valuable insights.  
 
 ## 👨‍💻 Contributors  
 - **Sean Nolan**  
