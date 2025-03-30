@@ -1,27 +1,89 @@
-# PolarPair
+Event Networking App - Team Diamond Hands
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
+📌 Overview
 
-## Development server
+Networking at events can be challenging, especially when attendees don’t know each other. This application provides a real-time, interest-based matchmaking system to help attendees connect, collaborate, and engage through AI-generated icebreakers.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+📖 Table of Contents
 
-## Code scaffolding
+🚀 Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+🛠 Tech Stack
 
-## Build
+📥 Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+📌 Usage
 
-## Running unit tests
+💰 Revenue Model
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+🏆 Competitive Advantage
 
-## Running end-to-end tests
+👨‍💻 Contributors
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+🚀 Features
 
-## Further help
+Room Creation: Organizers create event rooms with a unique code for attendees to join.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+User Profiles & Interest Matching: Attendees enter details, interests, and a profile photo.
+
+AI-Generated Icebreakers: Personalized icebreaker questions using Hugging Face API.
+
+Real-Time Pairing: Dynamic 1-on-1 or group matchmaking based on shared interests.
+
+Event Analytics: Insights on user engagement, popular interests, and interaction data.
+
+🛠 Tech Stack
+
+Frontend: Angular
+
+Backend: Django
+
+Database: MongoDB
+
+AI Integration: Hugging Face API
+
+📥 Installation
+
+Clone the repository
+
+git clone https://github.com/your-repo/event-networking-app.git
+cd event-networking-app
+
+📌 Usage
+
+Organizers create an event room and share the unique code.
+
+Attendees join the room, enter details, and select interests.
+
+The app matches users and generates personalized icebreakers.
+
+Users engage in networking rounds, meeting different attendees.
+
+Organizers review analytics to measure engagement and success.
+
+💰 Revenue Model
+
+Pay-per-use: Organizers pay based on attendees and icebreaker sessions.
+
+Subscription: Large corporations can access premium features.
+
+Freemium + Ads: Free version with limited features and ad-based monetization.
+
+🏆 Competitive Advantage
+
+Dynamic user matching based on interests (unlike traditional event platforms).
+
+AI-powered personalized icebreakers create engaging conversations.
+
+Real-time analytics provide event organizers with valuable insights.
+
+👨‍💻 Contributors
+
+Sean Nolan
+
+Joel Erulu
+
+Connor Griffin
+
+🚀 Built with innovation at USITCC and Won Best Overall
+
