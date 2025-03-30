@@ -9,8 +9,6 @@ Networking at events can be challenging, especially when attendees don’t know 
 - **Room Creation:** Organizers create event rooms with a **unique code** for attendees to join.  
 - **User Profiles & Interest Matching:** Attendees enter **details, interests, and a profile photo.**  
 - **AI-Generated Icebreakers:** **Personalized icebreaker questions using Hugging Face API.**  
-- **Real-Time Pairing:** **Dynamic 1-on-1 or group matchmaking** based on shared interests.  
-- **Event Analytics:** **Insights on user engagement, popular interests, and interaction data.**  
 
 ## 🛠 Tech Stack  
 - **Frontend:** Angular  
