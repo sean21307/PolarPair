@@ -1,5 +1,8 @@
 # **Event Networking App - Team Diamond Hands**  
 
+## Video Demo
+[Video Demo Link](https://youtube.com/shorts/pDUtVucSx_4?si=kKQD9PNqsMyAbKWk)
+
 ## 📌 Overview  
 
 Networking at events can be challenging, especially when attendees don’t know each other.  
